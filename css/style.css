@@ -1,0 +1,2218 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Dosis", sans-serif;
+}
+
+/*=================================================================
+ Índice de Secções:
+ 01 - CSS Base / Globais
+ 02 - Secção Preloader
+ 03 - Secção Navbar
+ 04 - Secção Hero (Home Index-1)
+ 05 - Secção Serviços
+ 06 - Secção Sobre Nós (About)
+ 07 - Secção Visão Geral (Overview)
+ 08 - Secção Contador (Counter)
+ 09 - Secção Portfólio
+ 10 - Secção Testemunhos
+ 11 - Secção Equipa (Team)
+ 12 - Secção Contratação (Hire)
+ 13 - Secção Parceiros (Partner)
+ 14 - Secção Blog
+ 15 - Secção Contacto
+ 16 - Secção Newsletter / Subscrição
+ 17 - Secção Rodapé (Footer)
+ 18 - Secção Copyright
+ 19 - Botão "Voltar ao Topo"
+=================================================================*/
+
+/**************************************
+ ** 01 - CSS Base / Globais
+ **************************************/
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+* {
+  scroll-behavior: inherit !important;
+}
+
+html, body {
+  height: auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  font-size: 16px;
+  font-family: 'Catamaran', sans-serif;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+button {
+  outline: 0 !important;
+}
+
+dl, ol, ul {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+/* Utilitário de tabela para centrar verticalmente conteúdo */
+.d-table {
+  width: 100%;
+  height: 100%;
+}
+
+.d-table-cell {
+  vertical-align: middle;
+}
+
+/* Classes utilitárias de espaçamento */
+.ptb-100 { padding-top: 100px; padding-bottom: 100px; }
+.pb-30 { padding-bottom: 30px; }
+.pb-40 { padding-bottom: 40px; }
+.pb-50 { padding-bottom: 50px; }
+.pb-70 { padding-bottom: 70px; }
+.pb-80 { padding-bottom: 80px; }
+.pb-100 { padding-bottom: 100px; }
+.pt-30 { padding-top: 30px; }
+.pt-40 { padding-top: 40px; }
+.pt-50 { padding-top: 50px; }
+.pt-70 { padding-top: 70px; }
+.pt-80 { padding-top: 80px; }
+.pt-100 { padding-top: 100px; }
+
+.bg-grey { background-color: #f7f8f9; }
+.section-padding { padding: 100px 0; }
+
+/* Links globais */
+a {
+  color: #404040;
+  text-decoration: none;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  outline: 0 !important;
+}
+
+a:hover {
+  color: #7b68ee;
+  text-decoration: none;
+}
+
+/* Títulos globais */
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.4;
+  font-family: 'Dosis', sans-serif;
+  margin: 0;
+}
+
+p {
+  color: #5f5f5f;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.2px;
+  font-family: 'Catamaran', sans-serif;
+  margin-bottom: 15px;
+}
+
+p:last-child { margin-bottom: 0; }
+
+/* Botão "Ler Mais" com ícone de seta animado para a direita */
+.read-more {
+  color: #7b68ee;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  -webkit-transition: all 400ms ease-out;
+  transition: all 400ms ease-out;
+}
+
+.read-more i {
+  color: #7b68ee;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  -webkit-transition: all 400ms ease-out;
+  transition: all 400ms ease-out;
+  margin-right: 5px;
+}
+
+/* O ícone desloca-se 5px para a direita ao hover */
+.read-more:hover i {
+  color: #7b68ee;
+  transform: translateX(5px);
+  -webkit-transition: all 400ms ease-out;
+  transition: all 400ms ease-out;
+}
+
+/*
+ * EFEITO RIPPLE NOS BOTÕES (default-btn, default-btn-one, default-btn-two)
+ *
+ * Cada botão tem um <span> filho absoluto com width:0 e height:0.
+ * O JS (main.js) posiciona esse span exactamente onde o cursor
+ * entrou no botão. O CSS em :hover expande o span para 200% de
+ * largura e 500px de altura com uma transição de 0.5s, criando
+ * a ilusão de uma onda que nasce no ponto de contacto do cursor.
+ * O span fica em z-index:-1, por isso fica sempre por trás do texto.
+ * overflow:hidden no botão garante que a onda não "vaza" para fora.
+ */
+.default-btn {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  border-radius: 5px;
+  display: inline-block;
+  background-color: #7b68ee;
+  box-shadow: 0 7px 25px rgb(123,104,238,0.25);
+  margin-top: 5px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border: none;
+}
+
+.default-btn span {
+  position: absolute;
+  z-index: -1;
+  width: 0;
+  height: 0;
+  display: block;
+  border-radius: 30px;
+  background-color: #3e57d0;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+}
+
+.default-btn:hover,
+.default-btn:focus { color: #ffffff; }
+
+.default-btn:hover span,
+.default-btn:focus span {
+  width: 200%;
+  height: 500px;
+}
+
+/* Botão alternativo (fundo branco, texto roxo) — mesmo efeito ripple */
+.default-btn-one {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  color: #7b68ee;
+  font-size: 16px;
+  font-weight: 600;
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  border-radius: 5px;
+  text-align: center;
+  display: inline-block;
+  background-color: #ffffff;
+  box-shadow: 0 7px 25px rgb(123,104,238,0.25);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border: none;
+  margin-top: 5px;
+  margin-right: 20px;
+}
+
+.default-btn-one span {
+  position: absolute;
+  z-index: -1;
+  width: 0;
+  height: 0;
+  display: block;
+  border-radius: 30px;
+  background-color: #3e57d0;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+}
+
+.default-btn-one:hover,
+.default-btn-one:focus { color: #ffffff; }
+
+.default-btn-one:hover span,
+.default-btn-one:focus span {
+  width: 200%;
+  height: 500px;
+}
+
+/* Botão escuro (fundo azul escuro) — mesmo efeito ripple com onda branca */
+.default-btn-two {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  text-align: center;
+  border-radius: 5px;
+  display: inline-block;
+  background-color: #3e57d0;
+  box-shadow: 0 7px 25px rgb(123,104,238,0.25);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border: none;
+  margin-top: 5px;
+  margin-right: 20px;
+}
+
+.default-btn-two span {
+  position: absolute;
+  z-index: -1;
+  width: 0;
+  height: 0;
+  display: block;
+  border-radius: 30px;
+  background-color: #ffffff;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+}
+
+.default-btn-two:hover,
+.default-btn-two:focus { color: #7b68ee; }
+
+.default-btn-two:hover span,
+.default-btn-two:focus span {
+  width: 200%;
+  height: 500px;
+}
+
+/* Título de secção centrado */
+.section-title {
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 65px;
+}
+
+/* Sub-título laranja em maiúsculas acima do título principal */
+.sub-title {
+  color: #ff9800;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.section-title h2 {
+  color: #404040;
+  font-size: 40px;
+  font-weight: 800;
+  margin: 10px 0 0 0;
+}
+
+/* Texto de destaque na cor roxa do tema */
+.color-text { color: #7b68ee; }
+
+/**************************************
+ ** 02 - Secção Preloader
+ *
+ * O preloader cobre toda a janela com z-index:99999.
+ * Os pseudo-elementos ::before e ::after formam dois painéis
+ * roxos que cobrem a esquerda e direita do ecrã (60% cada).
+ * Quando a página carrega, o JS adiciona "preloader-deactivate",
+ * que reduz os painéis de 60% para 0% (transição .9s), criando
+ * um efeito de "abertura de cortinas" e revelando o site.
+ * A caixinha (.box) faz um efeito de bounce/rotação 3D em loop
+ * enquanto o preloader está visível.
+ **************************************/
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  background-color: transparent;
+}
+
+.preloader .loader {
+  position: absolute;
+  top: 43%;
+  left: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  -webkit-transform: translateY(-43%);
+  transform: translateY(-43%);
+  text-align: center;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  margin: 0 auto;
+}
+
+/* A caixa branca que faz bounce com animação de rotação e squash */
+.preloader .loader .box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: #ffffff;
+  -webkit-animation: animate .5s linear infinite;
+  animation: animate .5s linear infinite;
+}
+
+/* Sombra elíptica que se expande/contrai em sincronia com o bounce */
+.preloader .loader .shadow {
+  position: absolute;
+  top: 59px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  opacity: 0.1;
+  border-radius: 50%;
+  background-color: #000000;
+  -webkit-animation: shadow .5s linear infinite;
+  animation: shadow .5s linear infinite;
+}
+
+/* Painéis de fundo roxo (esquerda e direita) */
+.preloader::before, .preloader::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background-color: #7b68ee;
+  -webkit-transition: .9s;
+  transition: .9s;
+}
+
+.preloader::after {
+  left: auto;
+  right: 0;
+}
+
+/* Estado desactivado: painéis colapsam para 0 e o loader desaparece */
+.preloader.preloader-deactivate { visibility: hidden; }
+
+.preloader.preloader-deactivate::after,
+.preloader.preloader-deactivate::before { width: 0; }
+
+.preloader.preloader-deactivate .loader {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Animação de bounce+rotação da caixinha branca */
+@-webkit-keyframes animate {
+  17% { border-bottom-right-radius: 3px; }
+  25% { -webkit-transform: translateY(9px) rotate(22.5deg); transform: translateY(9px) rotate(22.5deg); }
+  50% { -webkit-transform: translateY(18px) scale(1, 0.9) rotate(45deg); transform: translateY(18px) scale(1, 0.9) rotate(45deg); border-bottom-right-radius: 40px; }
+  75% { -webkit-transform: translateY(9px) rotate(67.5deg); transform: translateY(9px) rotate(67.5deg); }
+  100% { -webkit-transform: translateY(0) rotate(90deg); transform: translateY(0) rotate(90deg); }
+}
+@keyframes animate {
+  17% { border-bottom-right-radius: 3px; }
+  25% { -webkit-transform: translateY(9px) rotate(22.5deg); transform: translateY(9px) rotate(22.5deg); }
+  50% { -webkit-transform: translateY(18px) scale(1, 0.9) rotate(45deg); transform: translateY(18px) scale(1, 0.9) rotate(45deg); border-bottom-right-radius: 40px; }
+  75% { -webkit-transform: translateY(9px) rotate(67.5deg); transform: translateY(9px) rotate(67.5deg); }
+  100% { -webkit-transform: translateY(0) rotate(90deg); transform: translateY(0) rotate(90deg); }
+}
+
+/* Animação da sombra (expande no impacto) */
+@-webkit-keyframes shadow {
+  50% { -webkit-transform: scale(1.2, 1); transform: scale(1.2, 1); }
+}
+@keyframes shadow {
+  50% { -webkit-transform: scale(1.2, 1); transform: scale(1.2, 1); }
+}
+
+/*************************************
+ ** 03 - Secção Navbar
+ *
+ * A navbar começa com position:absolute e fundo transparente,
+ * sobreposta à hero section. Quando o JS deteta scroll > 120px,
+ * adiciona "is-sticky": a navbar passa para position:fixed,
+ * fundo branco e entra com animação fadeInDown (do Animate.css).
+ * Em mobile (≤991px) o .techvio-nav fica oculto e aparece o
+ * .techvio-responsive-nav com o menu hambúrguer (Mean Menu).
+ *************************************/
+.techvio-responsive-nav { display: none; }
+
+.techvio-nav {
+  padding-top: 15px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 15px;
+  background-color: transparent;
+}
+
+.techvio-nav .navbar {
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+}
+
+.techvio-nav .navbar ul {
+  padding-left: 0;
+  list-style-type: none;
+  margin-bottom: 0;
+}
+
+.techvio-nav .navbar .navbar-nav { margin: auto; }
+
+.techvio-nav .navbar .navbar-nav .nav-item {
+  position: relative;
+  padding-top: 15px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 15px;
+}
+
+.techvio-nav .navbar .navbar-nav .nav-item a {
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+  text-transform: capitalize;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.techvio-nav .navbar .navbar-nav .nav-item a i {
+  position: relative;
+  top: -1px;
+  font-size: 10px;
+  margin-left: 2px;
+}
+
+.techvio-nav .navbar .navbar-nav .nav-item:last-child a { margin-right: 0; }
+.techvio-nav .navbar .navbar-nav .nav-item:first-child a { margin-left: 0; }
+
+/* Dropdown oculto por defeito, aparece ao hover com transição suave */
+.techvio-nav .navbar .navbar-nav .nav-item .dropdown-menu {
+  position: absolute;
+  z-index: 99;
+  top: 80px;
+  left: 0;
+  width: 230px;
+  padding: 0;
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  border-radius: 3px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  border: none;
+}
+
+.techvio-nav .navbar .navbar-nav .nav-item .dropdown-menu li {
+  padding: 0;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.techvio-nav .navbar .navbar-nav .nav-item .dropdown-menu li:last-child {
+  border-bottom: 0px solid transparent;
+}
+
+.techvio-nav .navbar .navbar-nav .nav-item .dropdown-menu li a {
+  position: relative;
+  color: #404040;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+  padding: 10px 15px;
+  margin: 0;
+}
+
+.techvio-nav .navbar .navbar-nav .nav-item .dropdown-menu li a:hover,
+.techvio-nav .navbar .navbar-nav .nav-item .dropdown-menu li a:focus,
+.techvio-nav .navbar .navbar-nav .nav-item .dropdown-menu li a.active {
+  color: #ffffff;
+  background-color: #7b68ee;
+}
+
+/* Dropdown desce ao hover no item pai */
+.techvio-nav .navbar .navbar-nav .nav-item:hover .dropdown-menu {
+  top: 100%;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.techvio-nav .navbar .other-option {
+  margin-top: 3px;
+  margin-left: 0;
+}
+
+/* Logo preta oculta por defeito (aparece quando a navbar fica sticky) */
+.techvio-nav .black-logo { display: none; }
+
+.navbar-section {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+/* Navbar sticky: fundo branco, sombra, animação de entrada de cima */
+.navbar-section.is-sticky {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff !important;
+  -webkit-box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
+  -webkit-animation: 500ms ease-in-out 0s normal fadeInDown;
+  animation: 500ms ease-in-out 0s normal fadeInDown;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.navbar-section.is-sticky .navbar-nav .nav-item a { color: #505050; }
+
+.navbar-section.is-sticky .navbar-nav .nav-item a:hover,
+.navbar-section.is-sticky .navbar-nav .nav-item a:focus,
+.navbar-section.is-sticky .navbar-nav .nav-item a.active { color: #7b68ee; }
+
+/* Troca logo branca pela logo preta quando sticky */
+.navbar-section.is-sticky .techvio-nav .navbar-brand .white-logo { display: none; }
+.navbar-section.is-sticky .techvio-nav .navbar-brand .black-logo { display: block; }
+
+/* Comportamento responsivo da navbar em mobile */
+@media only screen and (max-width: 991px) {
+  .navbar-section { padding-top: 20px; padding-bottom: 20px; }
+
+  .navbar-section.is-sticky {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: none;
+    -webkit-box-shadow: 0 7px 13px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 7px 13px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-section.is-sticky .logo .white-logo { display: none; }
+  .navbar-section.is-sticky .logo .black-logo { display: block; }
+
+  /* Menu responsivo aparece em mobile */
+  .techvio-responsive-nav { display: block; }
+
+  .techvio-responsive-nav .techvio-responsive-menu { position: relative; }
+
+  .techvio-responsive-nav .techvio-responsive-menu.mean-container .mean-nav ul { font-size: 15px; }
+
+  .techvio-responsive-nav .techvio-responsive-menu.mean-container .mean-nav ul li a {
+    color: #101834;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .techvio-responsive-nav .techvio-responsive-menu.mean-container .mean-nav ul li a.active { color: #7b68ee; }
+
+  .techvio-responsive-nav .techvio-responsive-menu.mean-container .mean-nav ul li li a { font-size: 15px; }
+
+  .techvio-responsive-nav .techvio-responsive-menu.mean-container .navbar-nav {
+    overflow-y: scroll;
+    height: 300px;
+    -webkit-box-shadow: 0 7px 13px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 7px 13px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .techvio-responsive-nav .techvio-responsive-menu.mean-container .others-options { display: none; }
+
+  .techvio-responsive-nav .mean-container a.meanmenu-reveal { color: #404040; }
+
+  .techvio-responsive-nav .mean-container a.meanmenu-reveal span { background-color: #404040; }
+
+  .techvio-responsive-nav .logo {
+    position: relative;
+    width: 50%;
+    z-index: 999;
+  }
+
+  .techvio-responsive-nav .logo .white-logo { display: block; }
+  .techvio-responsive-nav .logo .black-logo { display: none; }
+
+  /* Menu desktop oculto em mobile */
+  .techvio-nav { display: none; }
+}
+
+/*********************************
+ ** 04 - Secção Hero (Home Index-1)
+ *
+ * A hero section ocupa 100% da altura do viewport (min-height:100vh)
+ * com um gradiente vertical de roxo escuro para azul claro.
+ * O fundo de partículas (#particles-js) é gerado pelo particles.js
+ * em position:absolute com z-index:-1, por baixo do conteúdo.
+ * A imagem da direita (.banner-image) tem o efeito Vanilla Tilt
+ * aplicado via data-tilt no HTML: ao mover o rato, a imagem inclina
+ * em 3D (perspective:1000px, rotateX/Y) criando profundidade visual.
+ * A forma decorativa (.creative-shape) fica em position:absolute
+ * na base da secção, em z-index:-1, sobreposta à secção seguinte.
+ *********************************/
+.home-section {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  height: 800px;
+  min-height: 100vh;
+}
+
+/* Gradiente de fundo da hero section principal */
+.home-section.index-1 {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  height: 800px;
+  min-height: 100vh;
+  background: -webkit-gradient(linear, left top, left bottom, from(#370b6f), color-stop(#00429b), color-stop(#006dba), color-stop(#0095ce), to(#2dbcdc));
+  background: linear-gradient(to bottom, #370b6f, #00429b, #006dba, #0095ce, #2dbcdc);
+}
+
+.main-banner-content { padding-top: 50px; }
+
+.main-banner-content h1 {
+  color: #ffffff;
+  font-size: 55px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+}
+
+.main-banner-content h6 {
+  color: #ff9800;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.main-banner-content p {
+  color: #ffffff;
+  font-size: 18px;
+  margin: 0;
+}
+
+.main-banner-content .banner-btn { margin-top: 25px; }
+
+/* Ícones sociais na hero section */
+.main-banner-content .social-icon-list { margin-bottom: 15px; }
+
+.main-banner-content .social-icon-list li {
+  display: inline-block;
+  margin: 5px 5px;
+}
+
+.main-banner-content .social-icon-list li a {
+  color: #fff;
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border: 1px solid rgb(255, 255, 255, 0.2);
+  background-color: transparent;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.main-banner-content .social-icon-list li a:hover {
+  color: #fff;
+  border: 1px solid #7b68ee;
+  background-color: #7b68ee;
+}
+
+/*
+ * EFEITO TILT NA IMAGEM DA HERO SECTION (Vanilla Tilt)
+ * O elemento .banner-image tem data-tilt no HTML.
+ * O Vanilla Tilt monitoriza a posição do rato e aplica
+ * transform: perspective(1000px) rotateX(Xdeg) rotateY(Ydeg) scale3d()
+ * directamente via style inline, criando a ilusão de que a imagem
+ * se "inclina" para seguir o cursor.
+ */
+.home-section .banner-image {
+  text-align: center;
+  padding-top: 50px;
+}
+
+/* Forma decorativa na base da hero, em baixo do conteúdo */
+.home-section .creative-shape {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: auto;
+}
+
+/* Canvas do particles.js (fundo de partículas animadas) */
+#particles-js {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+}
+
+/**************************************
+ ** 05 - Secção Serviços
+ *
+ * Cada cartão levanta 10px ao hover (translateY).
+ * O ícone de serviço faz uma rotação 3D (rotateY 180°) ao hover,
+ * criando um efeito de "flip" que dá dinamismo ao cartão.
+ **************************************/
+.services-section .section-title { margin-bottom: 35px; }
+
+.single-services-item {
+  position: relative;
+  z-index: 1;
+  display: block;
+  text-align: left;
+  padding: 35px 30px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 5px 7px 15px 2px rgba(82, 90, 101, 0.12);
+  -moz-box-shadow: 5px 7px 15px 2px rgba(82, 90, 101, 0.12);
+  box-shadow: 5px 7px 15px 2px rgba(82, 90, 101, 0.12);
+  -webkit-transition: all 500ms ease-out;
+  transition: all 500ms ease-out;
+  margin-top: 30px;
+}
+
+.services-icon {
+  display: inline-block;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  margin-bottom: 15px;
+  will-change: transform;
+}
+
+.services-icon i {
+  color: #ff561d;
+  font-size: 50px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.single-services-item h3 {
+  font-size: 20px;
+  font-weight: 700;
+  -webkit-transition: all 400ms ease-out;
+  transition: all 400ms ease-out;
+  margin-bottom: 0;
+}
+
+.single-services-item h3 a { display: inline-block; }
+
+.single-services-item p {
+  font-size: 16px;
+  -webkit-transition: all 400ms ease-out;
+  transition: all 400ms ease-out;
+  will-change: transform;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.single-services-item .services-btn { display: flex; }
+
+/* Cartão levanta ao hover */
+.single-services-item:hover {
+  -webkit-transform: translateY(-10px);
+  transform: translateY(-10px);
+}
+
+/* Ícone faz flip 3D ao hover */
+.single-services-item:hover .services-icon {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+/***********************************
+ ** 06 - Secção Sobre Nós (About)
+ *
+ * As barras de progresso (.progres) têm width:10% por defeito.
+ * O JS deteta quando entram no viewport e aplica a largura real
+ * definida em data-value="90%", activando a transição CSS de 1.5s
+ * que expande a barra de forma suave.
+ * A caixa "24 anos" (.years-design) usa o fundo da imagem about.jpg
+ * como preenchimento do texto (background-clip:text + webkit-text-fill-color),
+ * criando o efeito de texto com imagem dentro.
+ ***********************************/
+.about-area {
+  position: relative;
+  z-index: 1;
+}
+
+.about-content { margin-right: 15px; }
+
+.about-content h2 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.about-content p { margin-bottom: 15px; }
+
+.about-content p:nth-last-child(2) { margin-bottom: 0px; }
+
+.about-area .skills { margin-top: 20px; }
+
+.about-area .skills .skill-item { margin-bottom: 20px; }
+
+.about-area .skills .skill-item:last-child { margin-bottom: 0px; }
+
+.about-area .skills .skill-item h6 {
+  position: relative;
+  z-index: 4;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+
+.about-area .skills .skill-item h6 em {
+  float: right;
+  font-size: 15px;
+  font-style: normal;
+}
+
+.about-area .skills .skill-item .skill-progress {
+  position: relative;
+  height: 8px;
+  border-radius: 5px;
+  background-color: #ddddff;
+}
+
+/* Barra interior — começa a 10%, o JS expande-a ao entrar no viewport */
+.about-area .skills .skill-item .skill-progress .progres {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: #7b68ee;
+  -webkit-transition: all 1.5s;
+  transition: all 1.5s;
+}
+
+.about-btn-box {
+  display: inline-block;
+  margin-top: 25px;
+}
+
+.about-image {
+  position: relative;
+  text-align: center;
+  margin-left: 0px;
+}
+
+.about-image img { border-radius: 5px; }
+
+/* Caixa flutuante com os anos de experiência */
+.about-image .years-design {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  max-width: 250px;
+  padding: 15px 10px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  border-bottom: 2px solid #ff9800;
+  -webkit-box-shadow: -1px 3px 20px 0px rgb(82, 90, 101, 0.1);
+  box-shadow: -1px 3px 20px 0px rgb(82, 90, 101, 0.1);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Texto com imagem de fundo dentro (efeito "clip text") */
+.about-image .years-design h2 {
+  font-size: 70px;
+  font-weight: 800;
+  background: url('../assets/img/about.jpg') no-repeat;
+  background-position: 50% 50%;
+  background-clip: text;
+  color: transparent;
+  line-height: 1.1;
+}
+
+.about-image .years-design h5 {
+  color: #ff9800;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+/**************************************
+ ** 07 - Secção Visão Geral (Overview)
+ *
+ * Cada item da lista (.features-list li span) tem um pseudo-elemento
+ * ::before com width:0 que se expande para 100% ao hover,
+ * criando um efeito de preenchimento da esquerda para a direita
+ * que muda o fundo para roxo e o texto para branco.
+ **************************************/
+.overview-content h2 {
+  color: #404040;
+  font-size: 40px;
+  margin: 8px 0 15px 0;
+}
+
+.overview-content p { margin: 0; }
+
+.overview-content .features-list {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-left: 0;
+  list-style-type: none;
+  margin-bottom: 0;
+  margin-top: 16px;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.overview-content .features-list li {
+  -ms-flex: 0 0 50%;
+  -webkit-box-flex: 0;
+  flex: 0 0 50%;
+  max-width: 50%;
+  margin-top: 18px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Cada item da lista com borda roxa à esquerda e fundo branco */
+.overview-content .features-list li span {
+  position: relative;
+  z-index: 1;
+  color: #404040;
+  font-size: 16px;
+  font-weight: 600;
+  display: block;
+  padding: 13px 15px;
+  border-radius: 5px;
+  border-left: 2px solid #7b68ee;
+  background-color: #ffffff;
+  -webkit-box-shadow: -1px 3px 20px 0px rgb(82, 90, 101, 0.1);
+  box-shadow: -1px 3px 20px 0px rgb(82, 90, 101, 0.1);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+/* Pseudo-elemento de preenchimento (começa a 0%) */
+.overview-content .features-list li span::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 100%;
+  border-radius: 5px;
+  background-color: #7b68ee;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+/* Texto fica branco ao hover */
+.overview-content .features-list li span:hover { color: #ffffff; }
+
+/* Preenchimento expande para 100% da esquerda para a direita */
+.overview-content .features-list li span:hover::before { width: 100%; }
+
+.overview-image { text-align: center; }
+
+.overview-image-2 { text-align: center; }
+
+/*************************************
+ ** 08 - Secção Contador
+ *
+ * A secção tem background-attachment:fixed, criando um efeito
+ * parallax simples: o fundo da imagem fica fixo enquanto o conteúdo
+ * faz scroll por cima. O overlay escuro (::before, opacity:0.6)
+ * garante legibilidade do texto branco sobre a imagem.
+ *************************************/
+.counter-area {
+  position: relative;
+  z-index: 1;
+  padding: 120px 0;
+  text-align: center;
+  background: url('../assets/img/foda.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.counter-area.counter-bg-3 { background-image: url('../assets/img/foda.jpeg'); }
+
+/* Overlay escuro para legibilidade */
+.counter-area::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  background-color: #1f1f54;
+}
+
+.counter-area .section-title h5 { color: #ffffff; }
+.counter-area .section-title h2 { color: #fff; }
+
+.counter-contents h2 {
+  color: #fff;
+  font-size: 45px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  word-spacing: -5px;
+}
+
+.counter-contents h3 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/*************************************
+ ** 09 - Secção Portfólio
+ *
+ * Os filtros usam Isotope.js para reorganizar o grid com animação.
+ * Ao hover em cada item, o overlay (.portfolio-content-overlay)
+ * sobe de bottom:-20px para bottom:10px com opacity:1.
+ * O título e a categoria deslizam lateralmente (translateX) com
+ * um atraso (transition-delay:.3s) para parecer escalonado.
+ * O ícone de link desliza da direita para dentro (translateX(100%)→0).
+ *************************************/
+.portfolio-area { position: relative; }
+
+.portfolio-area .portfolio-list {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.portfolio-area .portfolio-list .nav {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+}
+
+.portfolio-area .portfolio-list .nav li {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 14px 25px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 5px 15px 0px rgb(94, 94, 94, 0.15);
+  box-shadow: 0px 5px 15px 0px rgb(94, 94, 94, 0.15);
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+  margin: 0 5px;
+}
+
+/* Filtro activo fica roxo */
+.portfolio-area .portfolio-list .nav li:hover,
+.portfolio-area .portfolio-list .nav li.filter-active {
+  color: #fff;
+  background-color: #7b68ee;
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.portfolio-area .portfolio-container {
+  width: 100%;
+  display: inline-block;
+}
+
+.portfolio-area .portfolio-grid-item { overflow: hidden; }
+
+.portfolio-grid-item img { width: 100%; border-radius: 0px; }
+
+.portfolio-item {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 5px;
+  margin-top: 30px;
+}
+
+/* Overlay oculto por defeito (opacity:0, bottom:-20px) */
+.portfolio-item .portfolio-content-overlay {
+  position: absolute;
+  z-index: 2;
+  left: 10px;
+  right: 10px;
+  bottom: -20px;
+  padding: 15px 20px;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  border-radius: 5px;
+  background-color: #ffffff;
+  -webkit-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+}
+
+/* Categoria: desliza da esquerda */
+.portfolio-item .portfolio-content-overlay p {
+  color: #7b68ee;
+  font-size: 15px;
+  font-weight: 700;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateX(-15px);
+  transform: translateX(-15px);
+  -webkit-transition: all .4s;
+  transition: all .4s;
+  margin-bottom: 0;
+}
+
+/* Título: desliza da direita */
+.portfolio-item .portfolio-content-overlay h3 {
+  color: #1b1b1b;
+  font-size: 18px;
+  font-weight: 700;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateX(15px);
+  transform: translateX(15px);
+  -webkit-transition: all .4s;
+  transition: all .4s;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+/* Ao hover: texto aparece com atraso de 0.3s */
+.portfolio-item:hover .portfolio-content-overlay p,
+.portfolio-item:hover .portfolio-content-overlay h3 {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
+  -webkit-transition-delay: .3s;
+  transition-delay: .3s;
+}
+
+/* Overlay sobe e aparece */
+.portfolio-item:hover .portfolio-content-overlay {
+  bottom: 10px;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Ícone de link desliza da direita para o centro */
+.portfolio-item .portfolio-content-overlay .portfolio-link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: auto;
+  right: 0;
+  color: #fff;
+  height: 100%;
+  padding: 0 20px;
+  font-size: 25px;
+  overflow: hidden;
+  line-height: normal;
+  background-color: #7b68ee;
+  transform: translateX(100%);
+  transition: transform 0.4s ease-in-out 0s;
+  transition-delay: 0.2s;
+}
+
+.portfolio-item:hover .portfolio-content-overlay .portfolio-link-icon {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+/* ──────────────────────────────────────────
+   SECTION: TESTIMONIALS
+────────────────────────────────────────── */
+.testimonials {
+  background: #f4f4f8;
+  padding: 90px 40px 80px;
+  overflow: hidden;
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+/* Viewport — janela fixa que mostra exactamente 3 cards */
+.testi-viewport {
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Track — linha horizontal que desliza */
+.testi-track {
+  display: flex;
+  gap: 28px;
+  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* Card */
+.testi-card {
+  flex: 0 0 calc((100% - 56px) / 3);
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 40px 28px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.testi-card:hover {
+  box-shadow: 0 10px 36px rgba(0,0,0,0.10);
+  transform: translateY(-4px);
+}
+
+/* Estrelas */
+.testi-stars {
+  display: flex;
+  gap: 5px;
+}
+.testi-stars i {
+  color: #f59e0b;
+  font-size: 1.15rem;
+}
+
+/* Texto */
+.testi-text {
+  font-size: 0.92rem;
+  color: #4b5563;
+  line-height: 1.85;
+  font-style: italic;
+  margin: 0;
+  flex: 1;
+}
+
+/* Avatar */
+.testi-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.testi-avatar img {
+  width: 90px;
+  display: block;
+  border-radius: 50%;
+  border: 5px solid #ffffff;
+  border-left-color: #7b68ee;
+  border-bottom-color: #7b68ee;
+  margin: 0 auto;
+}
+
+.testi-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0;
+}
+.testi-country {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #7c3aed;
+}
+
+/* Dots — visíveis e funcionais */
+.testi-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+.testi-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d1c4f5;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.testi-dot.is-active {
+  background: #7c3aed;
+  transform: scale(1.35);
+}
+
+/* ── Responsividade ── */
+@media (max-width: 991px) {
+  .testimonials { padding: 70px 30px 60px; }
+  .testi-card   { flex: 0 0 calc((100% - 28px) / 2); }
+}
+@media (max-width: 600px) {
+  .testimonials { padding: 60px 20px 50px; }
+  .testi-card   { flex: 0 0 100%; }
+}
+
+/************************************
+ ** 11 - Secção Equipa (Team)
+ *
+ * Ao hover em cada membro (.single-team-box):
+ *   1. Um overlay escuro aparece sobre a imagem (::before, opacity:.8)
+ *   2. A imagem faz zoom suave (scale 1.1)
+ *   3. Os ícones sociais passam de scale(0) para scale(1), surgindo
+ *      do centro da imagem em simultâneo com opacity 0→1.
+ ************************************/
+
+
+.team-area .section-title { margin-bottom: 35px; }
+
+.single-team-box {
+  margin-top: 30px;
+  overflow: hidden;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.team-image {
+  position: relative;
+  z-index: 1;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* Overlay escuro oculto por defeito */
+.team-image::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  background-color: #000;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+/* Overlay aparece ao hover */
+.single-team-box:hover .team-image::before {
+  opacity: .8;
+  visibility: visible;
+}
+
+.single-team-box .team-image img {
+  width: 100%;
+  height: auto;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+/* Zoom na imagem ao hover */
+.single-team-box:hover .team-image img {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+/* Contentor dos ícones sociais, centrado verticalmente */
+.team-social-icon {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* Ícones individuais ocultos com scale(0) por defeito */
+.team-social-icon a {
+  color: #fff;
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 8px;
+  margin: 0 2px;
+  opacity: 0;
+  visibility: hidden;
+  border: 1px solid #ffffff;
+  display: inline-block;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  will-change: transform;
+}
+
+/* Ícones aparecem com animação de escala ao hover */
+.single-team-box:hover .team-social-icon a {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.single-team-box .team-social-icon a:hover {
+  color: #fff;
+  background-color: #7b68ee;
+  border: 1px solid #7b68ee;
+}
+
+.team-info {
+  text-align: center;
+  padding: 20px 15px 0px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.team-info h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.team-info span {
+  color: #7b68ee;
+  font-size: 16px;
+  font-weight: 500;
+  display: block;
+}
+
+/**********************************
+ ** 12 - Secção Contratação (Hire)
+ *
+ * background-attachment:fixed cria um efeito parallax simples.
+ * O overlay escuro (::before) garante contraste sobre a imagem.
+ **********************************/
+.hire-section {
+  position: relative;
+  z-index: 1;
+  padding: 70px 0;
+  text-align: center;
+  background-image: url('../assets/img/city.jpeg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hire-section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  background-color: #1f1f54;
+}
+
+.hire-content h2 {
+  color: #fff;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.hire-content h6 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.hire-content p {
+  color: #fff;
+  font-size: 17px;
+  margin: 20px 0 0 0;
+}
+
+.hire-content .hire-btn { margin-top: 20px; }
+
+.hire-content .hire-btn .default-btn { margin-right: 15px; }
+
+/************************************
+ ** 13 - Secção Parceiros (Partner)
+ ************************************/
+.partner-section {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.partner-title {
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 65px;
+}
+
+.partner-title h2 {
+  color: #404040;
+  font-size: 40px;
+  font-weight: 800;
+  margin: 10px 0 0 0;
+}
+
+.partner-list {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-left: -5px;
+  margin-right: -5px;
+}
+
+.partner-list .partner-item {
+  -ms-flex: 0 0 20%;
+  -webkit-box-flex: 0;
+  flex: 0 0 20%;
+  max-width: 20%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.partner-list .partner-item a {
+  position: relative;
+  display: block;
+  padding: 5px 20px;
+  text-align: center;
+  border-radius: 10px;
+  border: 2px solid #ededed;
+  margin-bottom: 30px;
+}
+
+.partner-list .partner-item:nth-child(6) { margin-left: 10%; }
+
+/***********************************
+ ** 14 - Secção Blog
+ ***********************************/
+.blog-single-item {
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 5px 20px 0px rgb(82, 90, 101, 0.1);
+  box-shadow: 0px 5px 20px 0px rgb(82, 90, 101, 0.1);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  margin-bottom: 30px;
+}
+
+.blog-single-item .blog-description { padding: 20px 25px; }
+
+.blog-single-item .blog-description .blog-info {
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  margin-bottom: 0;
+}
+
+.blog-single-item .blog-description .blog-info li {
+  color: #7b68ee;
+  font-size: 16px;
+  font-weight: 600;
+  display: inline-block;
+  list-style-type: none;
+  margin-right: 15px;
+}
+
+.blog-single-item .blog-description .blog-info li:last-child { margin-right: 0; }
+
+.blog-single-item .blog-description .blog-info li i {
+  position: relative;
+  top: 0px;
+  color: #7b68ee;
+  margin-right: 3px;
+}
+
+.blog-single-item .blog-description .blog-info li i::before { font-size: 15px; }
+
+.blog-single-item .blog-description .blog-info a {
+  color: #555;
+  text-decoration: none;
+}
+
+.blog-single-item .blog-description .blog-text { -webkit-transition: 0.4s; transition: 0.4s; }
+
+.blog-single-item .blog-description .blog-text h3 {
+  color: #404040;
+  font-size: 22px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  margin: 10px 0px 10px 0px;
+}
+
+.blog-single-item .blog-description .blog-text h3:hover {
+  color: #7b68ee;
+  text-decoration: none;
+}
+
+.blog-single-item .blog-description .blog-text p {
+  color: #6a6c72;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.blog-single-item .blog-description .blog-text a { text-decoration: none; }
+
+.blog-single-item .blog-description .blog-text .blog-btn { margin-top: 15px; }
+
+.blog-single-item:hover .blog-description { border-top: none; }
+
+.blog-single-item:hover .blog-text h3 { color: #7b68ee; }
+
+/**********************************
+ ** 15 - Secção Contacto
+ **********************************/
+.contact-section {
+  position: relative;
+  z-index: 1;
+  background: url('../assets/img/globo.jpe');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.contact-form .form-group { margin-bottom: 30px; }
+
+.contact-form form .form-control {
+  border: 0;
+  width: 100%;
+  height: 55px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 20px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  border-left: 2px solid #7b68ee;
+  background-color: #b3b1b1;
+  -webkit-box-shadow: 0 5px 20px rgba(218, 225, 232, 0.8);
+  box-shadow: 0 5px 20px rgba(218, 225, 232, 0.8);
+}
+
+.contact-form form .form-control:focus {
+  border: none;
+  outline: none;
+  border: 1px solid #7b68ee;
+  border-left: 2px solid #7b68ee;
+}
+
+.contact-form form textarea.form-control {
+  height: auto;
+  padding-top: 15px;
+  line-height: initial;
+}
+
+/* Cor de destaque nos textos de contacto */
+.color-text { color: #7b68ee; }
+
+/* Mensagens de feedback do formulário */
+.contact-section .form-message.success {
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #03b103;
+  margin-bottom: 30px;
+}
+
+.contact-section .form-message.error {
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #ff4d15;
+  margin-bottom: 30px;
+}
+
+/* Variante da secção de contacto para a home page 1 */
+.contact-section.home-1-contact-section {
+  background-position: right center;
+  background-size: auto;
+  background-repeat: no-repeat;
+}
+
+.contact-section.home-1-contact-section .form-control {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  height: 55px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 1px solid #cacaca;
+  border-left: 2px solid #7b68ee;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.contact-section.home-1-contact-section .contact-form form textarea.form-control {
+  height: auto;
+  padding-top: 15px;
+  line-height: initial;
+}
+
+.contact-section.home-1-contact-section .home-contact-img { text-align: center; }
+
+/**************************************
+ ** 16 - Secção Newsletter / Subscrição
+ **************************************/
+.subscribe-area {
+  position: relative;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  line-height: 1.5;
+  border-bottom: 1px solid rgb(255, 255, 255, 0.2);
+}
+
+.subscribe-content { text-align: left; }
+
+.subscribe-content p {
+  color: #fff;
+  display: block;
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+.subscribe-content h2 {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+}
+
+.newsletter-form {
+  position: relative;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.newsletter-form .input-newsletter {
+  color: #404040;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  height: 50px;
+  display: block;
+  padding-left: 25px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  border: none;
+  outline: 0;
+}
+
+.newsletter-form .input-newsletter::-webkit-input-placeholder { color: #5f5f5f; }
+.newsletter-form .input-newsletter:-ms-input-placeholder { color: #5f5f5f; }
+.newsletter-form .input-newsletter::placeholder { color: #5f5f5f; }
+
+/* Botão posicionado à direita do campo de email */
+.newsletter-form button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 50px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0 30px;
+  border-radius: 0px 5px 5px 0px;
+  text-transform: capitalize;
+  background-color: #7b68ee;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border: none;
+}
+
+.newsletter-form button:hover {
+  color: #ffffff;
+  background-color: #ff9800;
+}
+
+/******************************************
+ ** 17 - Secção Rodapé (Footer)
+ ******************************************/
+.footer-subscribe-wrapper {
+  position: relative;
+  z-index: 1;
+  background-color: #042c4c;
+}
+
+/* Imagem de fundo com opacidade baixa sobre o fundo escuro */
+.footer-subscribe-wrapper:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  background-image: url('../assets/img/download.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.footer-logo {
+  display: inline-block;
+  margin-bottom: 25px;
+}
+
+.footer-heading { margin-bottom: 20px; }
+
+.footer-heading h3 {
+  position: relative;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(255, 255, 255, 0.2);
+  margin: 0;
+}
+
+.single-footer-widget .footer-social {
+  padding-left: 0;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.single-footer-widget .footer-social li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.single-footer-widget .footer-social li:last-child { margin-right: 0; }
+
+.single-footer-widget .footer-social i {
+  color: #7b68ee;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 8px;
+  display: inline-block;
+  border: 1px solid #ffffff;
+  background-color: #ffffff;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.single-footer-widget .footer-social i:hover {
+  color: #ffffff;
+  border: 1px solid #7b68ee;
+  background-color: #7b68ee;
+}
+
+.single-footer-widget p {
+  color: #ececec;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.single-footer-widget .footer-heading { margin-bottom: 25px; }
+
+.single-footer-widget .footer-heading h3 {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.single-footer-widget .footer-quick-links {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.single-footer-widget .footer-quick-links li {
+  padding-bottom: 18px;
+  list-style-type: none;
+}
+
+.single-footer-widget .footer-quick-links li:last-child { padding-bottom: 0; }
+
+.single-footer-widget .footer-quick-links li a {
+  display: inline-block;
+  color: #ececec;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.single-footer-widget .footer-quick-links li a:hover {
+  color: #7b68ee;
+  text-decoration: underline !important;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.single-footer-widget .footer-info-contact {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 16px;
+}
+
+.single-footer-widget .footer-info-contact:last-child { margin-bottom: 0; }
+
+.single-footer-widget .footer-info-contact i {
+  color: #ffffff;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.single-footer-widget .footer-info-contact i::before { font-size: 20px; }
+
+.single-footer-widget .footer-info-contact h3 {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+}
+
+.single-footer-widget .footer-info-contact span {
+  color: #ececec;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.single-footer-widget .footer-info-contact span a {
+  color: #ececec;
+  font-size: 16px;
+  font-weight: 400;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.single-footer-widget .footer-info-contact span a:hover { color: #7b68ee; }
+
+/*********************************************
+ ** 18 - Secção Copyright
+ *********************************************/
+.copyright-area {
+  padding: 35px 0;
+  background-color: #042c4c;
+  border-top: 1px solid rgb(255, 255, 255, 0.2);
+}
+
+.copyright-area p {
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.copyright-area p a {
+  color: #ececec;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.copyright-area p a:hover { color: #7b68ee; }
+
+.copyright-area ul {
+  padding-left: 0;
+  text-align: right;
+  margin-bottom: 0;
+}
+
+.copyright-area ul li {
+  position: relative;
+  color: #ececec;
+  font-size: 16px;
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.copyright-area ul li a {
+  color: #ffffff;
+  display: inline-block;
+}
+
+.copyright-area ul li a:hover { color: #7b68ee; }
+
+/* Separador vertical entre os links */
+.copyright-area ul li::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  right: -13px;
+  width: 1px;
+  height: 14px;
+  background-color: #ffffff;
+}
+
+.copyright-area ul li:last-child { margin-right: 0; }
+.copyright-area ul li:last-child::before { display: none; }
+.copyright-area ul li:first-child { margin-left: 0; }
+
+/*********************************
+ ** 19 - Botão "Voltar ao Topo"
+ *
+ * O botão .go-top usa dois ícones de chevron sobrepostos.
+ * Em estado normal, apenas o primeiro está visível.
+ * Ao hover:
+ *   - O primeiro ícone sobe e desaparece (top:0, opacity:0)
+ *   - O segundo sobe para o centro (top:50%, opacity:1)
+ * Cria a ilusão de um segundo chevron a subir em substituição
+ * do primeiro. O pseudo-elemento ::before muda para laranja ao hover.
+ *********************************/
+.go-top {
+  color: #ffffff;
+  position: fixed;
+  z-index: 4;
+  top: 0;
+  right: 15px;
+  width: 45px;
+  height: 45px;
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
+  line-height: 45px;
+  border-radius: 5px;
+  background-color: #7b68ee;
+  -webkit-transition: .9s;
+  transition: .9s;
+  cursor: pointer;
+}
+
+/* Estado activo: aparece no canto inferior direito */
+.go-top.active {
+  top: 98%;
+  -webkit-transform: translateY(-98%);
+  transform: translateY(-98%);
+  opacity: 1;
+  visibility: visible;
+}
+
+.go-top i {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  margin: 0 auto;
+}
+
+/* Segundo chevron oculto por defeito */
+.go-top i:last-child {
+  top: 60%;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Fundo laranja no hover (pseudo-elemento) */
+.go-top::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 5px;
+  background-color: #ff9800;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.go-top:hover, .go-top:focus { color: #ffffff; }
+
+.go-top:hover::before, .go-top:focus::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Primeiro chevron sai para cima ao hover */
+.go-top:hover i:first-child, .go-top:focus i:first-child {
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Segundo chevron sobe para o centro ao hover */
+.go-top:hover i:last-child, .go-top:focus i:last-child {
+  top: 50%;
+  opacity: 1;
+  visibility: visible;
+}
