@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agency — Start Bootstrap Theme</title>
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+
+  <!-- Font Awesome (versão mais recente via script) -->
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;family=Roboto+Slab:wght@100;300;400;700&amp;display=swap" rel="stylesheet">
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body id="topo-pagina">
+
+  <!-- ============================================================
+       NAVEGAÇÃO
+  ============================================================ -->
+  <nav class="barra-navegacao" id="barra-navegacao">
+    <div class="nav-conteudo">
+      <a href="#topo-pagina" class="nav-logo">
+        <img src="assets/img/navbar-logo.svg" alt="Agency Logo">
+      </a>
+
+      <!-- Botão hambúrguer (mobile) -->
+      <button class="nav-hamburguer" id="nav-hamburguer" aria-label="Abrir menu">
+        <span class="hamburguer-texto">MENU</span>
+        <div class="hamburguer-linhas">
+          <span class="hamburguer-linha"></span>
+          <span class="hamburguer-linha"></span>
+          <span class="hamburguer-linha"></span>
+        </div>
+      </button>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#servicos"  class="nav-link">SERVICES</a></li>
+        <li><a href="#portfolio" class="nav-link">PORTFOLIO</a></li>
+        <li><a href="#sobre"     class="nav-link">ABOUT</a></li>
+        <li><a href="#equipa"    class="nav-link">TEAM</a></li>
+        <li><a href="#contacto"  class="nav-link">CONTACT</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       CABEÇALHO (HERO)
+  ============================================================ -->
+  <header class="cabecalho" id="cabecalho">
+    <div class="cabecalho-conteudo">
+      <div class="cabecalho-subtitulo">Welcome To Our Studio!</div>
+      <div class="cabecalho-titulo">It's Nice To Meet You</div>
+      <a href="#servicos" class="botao-principal">Tell Me More</a>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       SERVICES
+  ============================================================ -->
+  <section class="seccao" id="servicos">
+    <div class="seccao-conteudo">
+      <div class="seccao-cabecalho">
+        <h2 class="seccao-titulo">Services</h2>
+        <h3 class="seccao-legenda">Lorem ipsum dolor sit amet consectetur.</h3>
+      </div>
+
+      <div class="grelha-servicos">
+        <div class="cartao-servico">
+         <img src="assets/img/Captura de ecrã_3-3-2026_114055_.jpeg" class="icone-servico" alt="E-Commerce">
+          <h4 class="cartao-titulo">E-Commerce</h4>
+          <p class="cartao-texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+        </div>
+
+        <div class="cartao-servico">
+          <img src="assets/img/Captura de ecrã_3-3-2026_114110_.jpeg" class="icone-servico" alt="Responsive Design">
+          <h4 class="cartao-titulo">Responsive Design</h4>
+          <p class="cartao-texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+        </div>
+
+        <div class="cartao-servico">
+          <img src="assets/img/Captura de ecrã_3-3-2026_114124_.jpeg" class="icone-servico" alt="Web Security">
+          <h4 class="cartao-titulo">Web Security</h4>
+          <p class="cartao-texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PORTFOLIO
+  ============================================================ -->
+  <section class="seccao seccao-clara" id="portfolio">
+    <div class="seccao-conteudo">
+      <div class="seccao-cabecalho">
+        <h2 class="seccao-titulo">Portfolio</h2>
+        <h3 class="seccao-legenda">Lorem ipsum dolor sit amet consectetur.</h3>
+      </div>
+
+      <div class="grelha-portfolio">
+        <!-- Item 1 -->
+        <div class="item-portfolio" data-modal="modal-1">
+          <div class="portfolio-link">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img src="assets/img/portfolio/1.jpg" alt="Threads">
+          </div>
+          <div class="portfolio-caption">
+            <div class="portfolio-caption-heading">Threads</div>
+            <div class="portfolio-caption-subheading">Illustration</div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="item-portfolio" data-modal="modal-2">
+          <div class="portfolio-link">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img src="assets/img/portfolio/2.jpg" alt="Explore">
+          </div>
+          <div class="portfolio-caption">
+            <div class="portfolio-caption-heading">Explore</div>
+            <div class="portfolio-caption-subheading">Graphic Design</div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="item-portfolio" data-modal="modal-3">
+          <div class="portfolio-link">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img src="assets/img/portfolio/3.jpg" alt="Finish">
+          </div>
+          <div class="portfolio-caption">
+            <div class="portfolio-caption-heading">Finish</div>
+            <div class="portfolio-caption-subheading">Identity</div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="item-portfolio" data-modal="modal-4">
+          <div class="portfolio-link">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img src="assets/img/portfolio/4.jpg" alt="Lines">
+          </div>
+          <div class="portfolio-caption">
+            <div class="portfolio-caption-heading">Lines</div>
+            <div class="portfolio-caption-subheading">Branding</div>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="item-portfolio" data-modal="modal-5">
+          <div class="portfolio-link">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img src="assets/img/portfolio/5.jpg" alt="Southwest">
+          </div>
+          <div class="portfolio-caption">
+            <div class="portfolio-caption-heading">Southwest</div>
+            <div class="portfolio-caption-subheading">Website Design</div>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="item-portfolio" data-modal="modal-6">
+          <div class="portfolio-link">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img src="assets/img/portfolio/6.jpg" alt="Window">
+          </div>
+          <div class="portfolio-caption">
+            <div class="portfolio-caption-heading">Window</div>
+            <div class="portfolio-caption-subheading">Photography</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT / LINHA DO TEMPO
+  ============================================================ -->
+  <section class="seccao" id="sobre">
+    <div class="seccao-conteudo">
+      <div class="seccao-cabecalho">
+        <h2 class="seccao-titulo">About</h2>
+        <h3 class="seccao-legenda">Lorem ipsum dolor sit amet consectetur.</h3>
+      </div>
+
+      <ul class="linha-tempo">
+        <li class="evento-tempo">
+          <div class="evento-imagem">
+            <img class="imagem-circular" src="assets/img/about/1.jpg" alt="Our Humble Beginnings">
+          </div>
+          <div class="evento-painel evento-painel-esquerda">
+            <div class="evento-cabecalho">
+              <h4 class="evento-data" style="padding-right: 10px;">2009-2011</h4>
+              <h4 class="evento-subtitulo" style="padding-right: 10px;">Our Humble Beginnings</h4>
+            </div>
+            <div class="evento-corpo" style="padding-right: 10px;">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="evento-tempo evento-tempo-invertido">
+          <div class="evento-imagem">
+            <img class="imagem-circular" src="assets/img/about/2.jpg" alt="An Agency is Born">
+          </div>
+          <div class="evento-painel evento-painel-direita">
+            <div class="evento-cabecalho">
+              <h4 class="evento-data" style="padding-left: 10px;">March 2011</h4>
+              <h4 class="evento-subtitulo" style="padding-left: 10px;">An Agency is Born</h4>
+            </div>
+            <div class="evento-corpo" style="padding-left: 10px;">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="evento-tempo">
+          <div class="evento-imagem">
+            <img class="imagem-circular" src="assets/img/about/3.jpg" alt="Transition to Full Service">
+          </div>
+          <div class="evento-painel evento-painel-esquerda">
+            <div class="evento-cabecalho">
+              <h4 class="evento-data" style="padding-right: 10px;">December 2015</h4>
+              <h4 class="evento-subtitulo" style="padding-right: 10px;">Transition to Full Service</h4>
+            </div>
+            <div class="evento-corpo" style="padding-right: 10px;">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="evento-tempo evento-tempo-invertido">
+          <div class="evento-imagem">
+            <img class="imagem-circular" src="assets/img/about/4.jpg" alt="Phase Two Expansion">
+          </div>
+          <div class="evento-painel evento-painel-direita">
+            <div class="evento-cabecalho">
+              <h4 class="evento-data" style="padding-left: 10px;">July 2020</h4>
+              <h4 class="evento-subtitulo" style="padding-left: 10px;">Phase Two Expansion</h4>
+            </div>
+            <div class="evento-corpo" style="padding-left: 10px;">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="evento-tempo evento-tempo-invertido">
+          <div class="evento-imagem evento-imagem-destaque">
+            <h4>Be Part<br>Of Our<br>Story!</h4>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TEAM
+  ============================================================ -->
+  <section class="seccao seccao-clara" id="equipa">
+    <div class="seccao-conteudo">
+      <div class="seccao-cabecalho">
+        <h2 class="seccao-titulo">Our Amazing Team</h2>
+        <h3 class="seccao-legenda">Lorem ipsum dolor sit amet consectetur.</h3>
+      </div>
+
+      <div class="grelha-equipa">
+        <div class="membro-equipa">
+          <img class="foto-membro" src="assets/img/team/1.jpg" alt="Parveen Anand">
+          <h4 class="nome-membro">Parveen Anand</h4>
+          <p class="cargo-membro">Lead Designer</p>
+          <div class="redes-sociais">
+            <a href="#!" class="botao-social" aria-label="Parveen Anand Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#!" class="botao-social" aria-label="Parveen Anand Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#!" class="botao-social" aria-label="Parveen Anand LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div class="membro-equipa">
+          <img class="foto-membro" src="assets/img/team/2.jpg" alt="Diana Petersen">
+          <h4 class="nome-membro">Diana Petersen</h4>
+          <p class="cargo-membro">Lead Marketer</p>
+          <div class="redes-sociais">
+            <a href="#!" class="botao-social" aria-label="Diana Petersen Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#!" class="botao-social" aria-label="Diana Petersen Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#!" class="botao-social" aria-label="Diana Petersen LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div class="membro-equipa">
+          <img class="foto-membro" src="assets/img/team/3.jpg" alt="Larry Parker">
+          <h4 class="nome-membro">Larry Parker</h4>
+          <p class="cargo-membro">Lead Developer</p>
+          <div class="redes-sociais">
+            <a href="#!" class="botao-social" aria-label="Larry Parker Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#!" class="botao-social" aria-label="Larry Parker Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#!" class="botao-social" aria-label="Larry Parker LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="equipa-rodape">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CLIENTES
+  ============================================================ -->
+  <div class="seccao-clientes">
+    <div class="seccao-conteudo">
+      <div class="grelha-clientes">
+        <a href="#!" class="logo-cliente"><img class="img-marca" src="assets/img/logos/microsoft.svg" alt="Microsoft"></a>
+        <a href="#!" class="logo-cliente"><img class="img-marca" src="assets/img/logos/google.svg" alt="Google"></a>
+        <a href="#!" class="logo-cliente"><img class="img-marca" src="assets/img/logos/facebook.svg" alt="Facebook"></a>
+        <a href="#!" class="logo-cliente"><img class="img-marca" src="assets/img/logos/ibm.svg" alt="IBM"></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       CONTACTO
+  ============================================================ -->
+  <section class="seccao seccao-contacto" id="contacto">
+    <div class="seccao-conteudo">
+      <div class="seccao-cabecalho">
+        <h2 class="seccao-titulo seccao-titulo-claro">Contact Us</h2>
+        <h3 class="seccao-legenda seccao-legenda-claro">Lorem ipsum dolor sit amet consectetur.</h3>
+      </div>
+
+      <form class="formulario-contacto" id="formulario-contacto" novalidate>
+        <div class="formulario-colunas">
+          <div class="formulario-coluna">
+            <div class="campo-grupo">
+              <input class="campo-input" id="nome" type="text" placeholder="Your Name *" required>
+              <div class="campo-erro">A name is required.</div>
+            </div>
+            <div class="campo-grupo">
+              <input class="campo-input" id="email" type="email" placeholder="Your Email *" required>
+              <div class="campo-erro">An email is required.</div>
+            </div>
+            <div class="campo-grupo">
+              <input class="campo-input" id="telefone" type="tel" placeholder="Your Phone *" required>
+              <div class="campo-erro">A phone number is required.</div>
+            </div>
+          </div>
+
+          <div class="formulario-coluna">
+            <div class="campo-grupo campo-grupo-altura-total">
+              <textarea class="campo-input campo-textarea" id="mensagem" placeholder="Your Message *" required></textarea>
+              <div class="campo-erro">A message is required.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="formulario-sucesso oculto" id="mensagem-sucesso">Form submission successful!</div>
+        <div class="formulario-erro-envio oculto" id="mensagem-erro">Error sending message!</div>
+
+        <div class="formulario-botao-wrapper">
+          <button class="botao-principal botao-enviar" type="submit" id="botao-enviar">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       RODAPÉ
+  ============================================================ -->
+  <footer class="rodape">
+    <div class="rodape-conteudo">
+      <span class="rodape-copyright">Copyright &copy; Your Website 2023</span>
+
+      <div class="rodape-redes">
+        <a href="#!" class="botao-social" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#!" class="botao-social" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#!" class="botao-social" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+
+      <div class="rodape-links">
+        <a href="#!" class="rodape-link">Privacy Policy</a>
+        <a href="#!" class="rodape-link">Terms of Use</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       MODAIS DO PORTFOLIO (6 modais)
+  ============================================================ -->
+
+  <!-- Modal 1 -->
+  <div class="modal-portfolio" id="modal-1" role="dialog" aria-modal="true">
+    <div class="modal-dialogo">
+      <div class="modal-conteudo">
+        <div class="modal-fechar"><img src="assets/img/close-icon.svg" alt="Fechar"></div>
+        <div class="modal-corpo-interior">
+          <h2 class="modal-titulo">Project Name</h2>
+          <p class="modal-intro">Lorem ipsum dolor sit amet consectetur.</p>
+          <img src="assets/img/portfolio/1.jpg" class="modal-imagem" alt="Threads">
+          <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+          <ul class="modal-lista">
+            <li><strong>Client:</strong> Threads</li>
+            <li><strong>Category:</strong> Illustration</li>
+          </ul>
+          <button class="botao-principal botao-fechar-modal" type="button"><i class="fas fa-xmark"></i> Close Project</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2 -->
+  <div class="modal-portfolio" id="modal-2" role="dialog" aria-modal="true">
+    <div class="modal-dialogo">
+      <div class="modal-conteudo">
+        <div class="modal-fechar"><img src="assets/img/close-icon.svg" alt="Fechar"></div>
+        <div class="modal-corpo-interior">
+          <h2 class="modal-titulo">Project Name</h2>
+          <p class="modal-intro">Lorem ipsum dolor sit amet consectetur.</p>
+          <img src="assets/img/portfolio/2.jpg" class="modal-imagem" alt="Explore">
+          <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+          <ul class="modal-lista">
+            <li><strong>Client:</strong> Explore</li>
+            <li><strong>Category:</strong> Graphic Design</li>
+          </ul>
+          <button class="botao-principal botao-fechar-modal" type="button"><i class="fas fa-xmark"></i> Close Project</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3 -->
+  <div class="modal-portfolio" id="modal-3" role="dialog" aria-modal="true">
+    <div class="modal-dialogo">
+      <div class="modal-conteudo">
+        <div class="modal-fechar"><img src="assets/img/close-icon.svg" alt="Fechar"></div>
+        <div class="modal-corpo-interior">
+          <h2 class="modal-titulo">Project Name</h2>
+          <p class="modal-intro">Lorem ipsum dolor sit amet consectetur.</p>
+          <img src="assets/img/portfolio/3.jpg" class="modal-imagem" alt="Finish">
+          <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+          <ul class="modal-lista">
+            <li><strong>Client:</strong> Finish</li>
+            <li><strong>Category:</strong> Identity</li>
+          </ul>
+          <button class="botao-principal botao-fechar-modal" type="button"><i class="fas fa-xmark"></i> Close Project</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4 -->
+  <div class="modal-portfolio" id="modal-4" role="dialog" aria-modal="true">
+    <div class="modal-dialogo">
+      <div class="modal-conteudo">
+        <div class="modal-fechar"><img src="assets/img/close-icon.svg" alt="Fechar"></div>
+        <div class="modal-corpo-interior">
+          <h2 class="modal-titulo">Project Name</h2>
+          <p class="modal-intro">Lorem ipsum dolor sit amet consectetur.</p>
+          <img src="assets/img/portfolio/4.jpg" class="modal-imagem" alt="Lines">
+          <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+          <ul class="modal-lista">
+            <li><strong>Client:</strong> Lines</li>
+            <li><strong>Category:</strong> Branding</li>
+          </ul>
+          <button class="botao-principal botao-fechar-modal" type="button"><i class="fas fa-xmark"></i> Close Project</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 5 -->
+  <div class="modal-portfolio" id="modal-5" role="dialog" aria-modal="true">
+    <div class="modal-dialogo">
+      <div class="modal-conteudo">
+        <div class="modal-fechar"><img src="assets/img/close-icon.svg" alt="Fechar"></div>
+        <div class="modal-corpo-interior">
+          <h2 class="modal-titulo">Project Name</h2>
+          <p class="modal-intro">Lorem ipsum dolor sit amet consectetur.</p>
+          <img src="assets/img/portfolio/5.jpg" class="modal-imagem" alt="Southwest">
+          <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+          <ul class="modal-lista">
+            <li><strong>Client:</strong> Southwest</li>
+            <li><strong>Category:</strong> Website Design</li>
+          </ul>
+          <button class="botao-principal botao-fechar-modal" type="button"><i class="fas fa-xmark"></i> Close Project</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 6 -->
+  <div class="modal-portfolio" id="modal-6" role="dialog" aria-modal="true">
+    <div class="modal-dialogo">
+      <div class="modal-conteudo">
+        <div class="modal-fechar"><img src="assets/img/close-icon.svg" alt="Fechar"></div>
+        <div class="modal-corpo-interior">
+          <h2 class="modal-titulo">Project Name</h2>
+          <p class="modal-intro">Lorem ipsum dolor sit amet consectetur.</p>
+          <img src="assets/img/portfolio/6.jpg" class="modal-imagem" alt="Window">
+          <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+          <ul class="modal-lista">
+            <li><strong>Client:</strong> Window</li>
+            <li><strong>Category:</strong> Photography</li>
+          </ul>
+          <button class="botao-principal botao-fechar-modal" type="button"><i class="fas fa-xmark"></i> Close Project</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    /* ---- Navbar: encolhe ao fazer scroll ---- */
+    var barra = document.getElementById("barra-navegacao");
+
+    function actualizarNavbar() {
+      if (window.scrollY > 100) {
+        barra.classList.add("barra-encolhida");
+      } else {
+        barra.classList.remove("barra-encolhida");
+      }
+    }
+    window.addEventListener("scroll", actualizarNavbar);
+    actualizarNavbar();
+
+    /* ---- Menu hambúrguer (mobile) ---- */
+    var hamburguer = document.getElementById("nav-hamburguer");
+    var menu = document.getElementById("nav-menu");
+
+    function fecharMenuMobile() {
+      menu.classList.remove("nav-menu-aberto");
+      hamburguer.classList.remove("nav-hamburguer-ativo");
+    }
+
+    hamburguer.addEventListener("click", function () {
+      menu.classList.toggle("nav-menu-aberto");
+      hamburguer.classList.toggle("nav-hamburguer-ativo");
+    });
+
+    document.querySelectorAll(".nav-link").forEach(function (link) {
+      link.addEventListener("click", fecharMenuMobile);
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!hamburguer.contains(e.target) && !menu.contains(e.target)) {
+        fecharMenuMobile();
+      }
+    });
+
+    /* ---- Modais do portfolio ---- */
+    function fecharTodosModais() {
+      document.querySelectorAll(".modal-portfolio.modal-aberto").forEach(function (m) {
+        m.classList.remove("modal-aberto");
+      });
+      document.body.classList.remove("modal-ativo");
+    }
+
+    document.querySelectorAll(".item-portfolio").forEach(function (item) {
+      item.addEventListener("click", function () {
+        var modal = document.getElementById(item.getAttribute("data-modal"));
+        if (modal) {
+          modal.classList.add("modal-aberto");
+          document.body.classList.add("modal-ativo");
+        }
+      });
+    });
+
+    document.querySelectorAll(".modal-fechar").forEach(function (btn) {
+      btn.addEventListener("click", fecharTodosModais);
+    });
+
+    document.querySelectorAll(".botao-fechar-modal").forEach(function (btn) {
+      btn.addEventListener("click", fecharTodosModais);
+    });
+
+    document.querySelectorAll(".modal-portfolio").forEach(function (modal) {
+      modal.addEventListener("click", function (e) {
+        if (e.target === modal) fecharTodosModais();
+      });
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") fecharTodosModais();
+    });
+
+    /* ---- Validação do formulário de contacto ---- */
+    var formulario = document.getElementById("formulario-contacto");
+
+    formulario.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var valido = true;
+
+      formulario.querySelectorAll("[required]").forEach(function (campo) {
+        var grupo = campo.closest(".campo-grupo");
+        if (!campo.value.trim()) {
+          grupo.classList.add("campo-grupo-invalido");
+          valido = false;
+        } else {
+          grupo.classList.remove("campo-grupo-invalido");
+        }
+      });
+
+      if (valido) {
+        document.getElementById("mensagem-sucesso").classList.remove("oculto");
+        document.getElementById("mensagem-erro").classList.add("oculto");
+        formulario.reset();
+      } else {
+        document.getElementById("mensagem-erro").classList.remove("oculto");
+        document.getElementById("mensagem-sucesso").classList.add("oculto");
+      }
+    });
+  </script>
+
+</body>
+</html>
