@@ -168,133 +168,35 @@ $(document).ready(function () {
   // ─────────────────────────────────────────────────────────────────
   // SLIDER DE TESTEMUNHOS (Owl Carousel)
  
-/* ── TESTIMONIALS — loop infinito, sempre da direita para a esquerda ── */
-(function () {
-  var track    = document.getElementById('testiTrack');
-  var dotsWrap = document.getElementById('testiDots');
-  if (!track || !dotsWrap) return;
-
-  var GAP = 28;
-  var timer = null;
-
-  /* ── 1. Clonar os cards originais para criar o loop ── */
-  /* Guardamos apenas os cards originais (antes de clonar) */
-  var originals = Array.prototype.slice.call(track.querySelectorAll('.testi-card'));
-  var total     = originals.length; /* 3 */
-
-  /* Clonamos todos os cards e acrescentamos ao final do track.
-     Assim o track fica: [1, 2, 3, clone1, clone2, clone3]
-     Quando chegamos ao clone3, teleportamos para o card 3 original
-     e continuamos a andar — o utilizador nunca vê a costura. */
-  originals.forEach(function (card) {
-    track.appendChild(card.cloneNode(true));
+  /* ── TESTIMONIALS — replica o carousel do layout original ── */
+  $('.testimonial-slider').owlCarousel({
+    loop: true,
+    margin: 28,
+    dots: true,
+    nav: false,
+    smartSpeed: 650,
+    autoplay: true,
+    autoplayHoverPause: true,
+    autoplayTimeout: 4650,
+    navText: [
+      "<i class='bi bi-chevron-left'></i>",
+      "<i class='bi bi-chevron-right'></i>"
+    ],
+    responsive: {
+      0: {
+        items: 1,
+        nav: true
+      },
+      768: {
+        items: 2,
+        nav: true
+      },
+      992: {
+        items: 3,
+        nav: false
+      }
+    }
   });
-
-  /* Posição actual no track (em índice de cards, começa em 0) */
-  var pos = 0;
-
-  /* ── 2. Utilitários ── */
-  function visibleCount() {
-    if (window.innerWidth <= 600)  return 1;
-    if (window.innerWidth <= 991)  return 2;
-    return 3;
-  }
-
-  function cardWidth() {
-    /* largura real de um card já renderizado */
-    return track.querySelectorAll('.testi-card')[0].getBoundingClientRect().width;
-  }
-
-  function stepPx() {
-    return cardWidth() + GAP;
-  }
-
-  /* ── 3. Mover o track COM animação ── */
-  function moveTo(idx, animate) {
-    if (animate === false) {
-      /* desliga a transição momentaneamente */
-      track.style.transition = 'none';
-    } else {
-      track.style.transition = 'transform 0.65s cubic-bezier(0.4, 0, 0.2, 1)';
-    }
-    track.style.transform = 'translateX(-' + (idx * stepPx()) + 'px)';
-    pos = idx;
-    updateDots();
-  }
-
-  /* ── 4. Avançar um card (sempre para a esquerda) ── */
-  function next() {
-    var nextPos = pos + 1;
-    moveTo(nextPos, true);
-
-    /* Quando chegamos ao primeiro clone (índice === total),
-       esperamos que a animação termine e teleportamos de volta
-       ao card original equivalente (índice 0) sem animação.
-       O loop é: 0→1→2→3(clone0)→teleporta para 0→1→2→... */
-    if (nextPos >= total) {
-      track.addEventListener('transitionend', resetToStart, { once: true });
-    }
-  }
-
-  function resetToStart() {
-    /* Força reflow para que "transition:none" seja aplicado antes
-       de repor o transform — evita flash */
-    moveTo(0, false);
-    /* Forçamos reflow */
-    track.getBoundingClientRect();
-    /* Religa a transição no próximo frame */
-    requestAnimationFrame(function () {
-      track.style.transition = 'transform 0.65s cubic-bezier(0.4, 0, 0.2, 1)';
-    });
-  }
-
-  /* ── 5. Dots — um por card original ── */
-  function buildDots() {
-    dotsWrap.innerHTML = '';
-    for (var i = 0; i < total; i++) {
-      var dot = document.createElement('button');
-      dot.className = 'testi-dot' + (i === 0 ? ' is-active' : '');
-      dot.setAttribute('aria-label', 'Testemunho ' + (i + 1));
-      (function (idx) {
-        dot.addEventListener('click', function () {
-          moveTo(idx, true);
-          resetTimer();
-        });
-      }(i));
-      dotsWrap.appendChild(dot);
-    }
-  }
-
-  function updateDots() {
-    /* O dot activo corresponde a pos % total (para os clones mostrarem
-       o dot do card original equivalente) */
-    var activeDot = pos % total;
-    dotsWrap.querySelectorAll('.testi-dot').forEach(function (d, i) {
-      d.classList.toggle('is-active', i === activeDot);
-    });
-  }
-
-  /* ── 6. Timer ── */
-  function startTimer() { timer = setInterval(next, 5000); }
-  function stopTimer()  { clearInterval(timer); }
-  function resetTimer() { stopTimer(); startTimer(); }
-
-  /* Pausa no hover */
-  track.addEventListener('mouseenter', stopTimer);
-  track.addEventListener('mouseleave', startTimer);
-
-  /* Reconstrói em resize (reset ao início para evitar posições erradas) */
-  window.addEventListener('resize', function () {
-    stopTimer();
-    moveTo(0, false);
-    startTimer();
-  });
-
-  /* ── 7. Iniciar ── */
-  buildDots();
-  moveTo(0, false);
-  startTimer();
-}());
 
   // ─────────────────────────────────────────────────────────────────
   // CONTADOR ANIMADO (CounterUp)
